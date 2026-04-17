@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 Vesak Reload Giveaway 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #FFD700;
+            --orange: #FF8C00;
+            --yellow: #FFA500;
+            --dark-blue: #0a0e27;
+            --midnight: #1a1f3a;
+            --glow-gold: rgba(255, 215, 0, 0.6);
+            --glow-orange: rgba(255, 140, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1535 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: white;
+            position: relative;
+        }
+
+        /* Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float-particle 15s infinite;
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Buddha Silhouette */
+        .buddha-container {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            height: 80vh;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.15;
+        }
+
+        .buddha {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 500px;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+            animation: buddha-glow 8s ease-in-out infinite;
+        }
+
+        .buddha::before {
+            content: '☸';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px;
+            color: rgba(255, 215, 0, 0.2);
+            filter: blur(2px);
+        }
+
+        .buddha-halo {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            animation: halo-pulse 6s ease-in-out infinite;
+            box-shadow: 
+                0 0 60px rgba(255, 215, 0, 0.4),
+                inset 0 0 60px rgba(255, 215, 0, 0.2);
+        }
+
+        @keyframes buddha-glow {
+            0%, 100% { opacity: 0.15; filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3)); }
+            50% { opacity: 0.25; filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.6)); }
+        }
+
+        @keyframes halo-pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+            50% { transform: translateX(-50%) scale(1.1); opacity: 0.6; }
+        }
+
+        /* Floating Lanterns */
+        .lanterns-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .lantern {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 60px;
+            animation: float-up linear infinite;
+        }
+
+        .lantern-body {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #FFD700 0%, #FF8C00 40%, #FF6347 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 140, 0, 0.6),
+                0 0 60px rgba(255, 99, 71, 0.4),
+                inset 0 -10px 20px rgba(255, 69, 0, 0.3);
+        }
+
+        .lantern-body::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            background: #8B4513;
+            border-radius: 2px;
+        }
+
+        .lantern-body::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .lantern:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; transform: scale(0.8); }
+        .lantern:nth-child(2) { left: 25%; animation-duration: 15s; animation-delay: 2s; transform: scale(1.2); }
+        .lantern:nth-child(3) { left: 40%; animation-duration: 13s; animation-delay: 4s; transform: scale(0.9); }
+        .lantern:nth-child(4) { left: 60%; animation-duration: 16s; animation-delay: 1s; transform: scale(1.1); }
+        .lantern:nth-child(5) { left: 75%; animation-duration: 14s; animation-delay: 3s; transform: scale(0.7); }
+        .lantern:nth-child(6) { left: 90%; animation-duration: 17s; animation-delay: 5s; transform: scale(1.0); }
+        .lantern:nth-child(7) { left: 15%; animation-duration: 18s; animation-delay: 7s; transform: scale(0.6); }
+        .lantern:nth-child(8) { left: 85%; animation-duration: 11s; animation-delay: 6s; transform: scale(1.3); }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            25% {
+                transform: translateY(-25vh) translateX(20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(-50vh) translateX(-10px) rotate(-3deg);
+            }
+            75% {
+                transform: translateY(-75vh) translateX(15px) rotate(4deg);
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-120vh) translateX(-20px) rotate(0deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(255, 215, 0, 0.1),
+                inset 0 0 60px rgba(255, 215, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: card-shine 8s linear infinite;
+        }
+
+        @keyframes card-shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            animation: text-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes text-glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .sinhala-text {
+            font-family: 'Noto Sans Sinhala', sans-serif;
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: rgba(255, 215, 0, 0.9);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            color: #0a0e27;
+            box-shadow: 
+                0 5px 20px rgba(255, 215, 0, 0.4),
+                0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 10px 30px rgba(255, 215, 0, 0.6),
+                0 0 50px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            color: #FFD700;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.3),
+                inset 0 0 10px rgba(255, 215, 0, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Success Animation */
+        .success-icon {
+            font-size: 80px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: success-bounce 1s ease;
+        }
+
+        @keyframes success-bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Rules List */
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 3px solid #FFD700;
+            border-radius: 0 10px 10px 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+        }
+
+        .rules-list li:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .rules-list li::before {
+            content: '🪷';
+            margin-right: 10px;
+        }
+
+        /* Section Transitions */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2rem;
+            opacity: 0.8;
+            animation: spin-slow 10s linear infinite;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            margin: 25px 0;
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .glass-card {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .buddha {
+                width: 250px;
+                height: 350px;
+            }
+
+            .buddha::before {
+                font-size: 200px;
+            }
+
+            .lantern {
+                transform: scale(0.7) !important;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #FFD700;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Confetti Effect */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #FFD700;
+            position: absolute;
+            animation: confetti-fall 3s ease-out forwards;
+            z-index: 100;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Buddha Silhouette -->
+    <div class="buddha-container">
+        <div class="buddha-halo"></div>
+        <div class="buddha"></div>
+    </div>
+
+    <!-- Floating Lanterns -->
+    <div class="lanterns-container">
+        <div class="lantern"><div class="lantern-body"></div></div>
+        <div class="lantern"><div class="lantern-body"></div></div>
+        <div class="lantern"><div class="lantern-body"></div></div>
+        <div class="lantern"><div class="lantern-body"></div></div>
+        <div class="lantern"><div class="lantern-body"></div></div>
+        <div class="lantern"><div class="lantern-body"></div></div>
+        <div class="lantern"><div class="lantern-body"></div></div>
+        <div class="lantern"><div class="lantern-body"></div></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="glass-card">
+            <div class="card-content">
+                
+                <!-- Home Section -->
+                <div id="home-section" class="section active">
+                    <div class="decoration">🪷</div>
+                    <h1>🎁 Vesak Reload Giveaway 2026</h1>
+                    <p class="subtitle">
+                        Join and win free reload during Vesak season
+                        <span class="sinhala-text">වෙසක් සමයේ දී නොමිලේ රීලෝඩ් දිනාගන්න</span>
+                    </p>
+                    <div class="divider"></div>
+                    <button class="btn btn-primary" onclick="showSection('form-section')">
+                        Enter Giveaway
+                        <span class="sinhala-text" style="font-size: 0.8em; display: block; margin-top: 5px;">ගිවිසුමට එක්වන්න</span>
+                    </button>
+                    <button class="btn btn-outline" onclick="showSection('rules-section')" style="margin-top: 15px;">
+                        View Rules / නීති රීති
+                    </button>
+                </div>
+
+                <!-- Form Section -->
+                <div id="form-section" class="section">
+                    <div class="decoration">✨</div>
+                    <h1>Enter Now</h1>
+                    <p class="subtitle">
+                        Fill in your details to participate
+                        <span class="sinhala-text">සහභාගී වීමට ඔබගේ විස්තර පුරවන්න</span>
+                    </p>
+                    
+                    <form id="giveaway-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name / සම්පූර්ණ නම</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number / දුරකථන අංකය</label>
+                            <input type="tel" id="phone" name="phone" placeholder="07X XXX XXXX" pattern="[0-9]{10}" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            Submit Entry / යොමු කරන්න
+                        </button>
+                    </form>
+                    
+                    <button class="btn btn-outline" onclick="showSection('home-section')" style="margin-top: 15px;">
+                        ← Back / ආපසු
+                    </button>
+                </div>
+
+                <!-- Success Section -->
+                <div id="success-section" class="section">
+                    <div class="success-icon">🎉</div>
+                    <h1>Success!</h1>
+                    <p class="subtitle">
+                        You have successfully entered the giveaway!
+                        <span class="sinhala-text">ඔබ සාර්ථකව ගිවිසුමට එක්වී ඇත!</span>
+                    </p>
+                    
+                    <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(255, 215, 0, 0.3);">
+                        <p style="text-align: center; font-size: 0.95rem; line-height: 1.6;">
+                            🎯 <strong>Share with friends to increase your chances</strong><br>
+                            <span class="sinhala-text" style="font-size: 0.9em;">ඔබගේ අවස්ථා වැඩි කර ගැනීමට මිතුරන් සමඟ බෙදා හදා ගන්න</span>
+                        </p>
+                    </div>
+
+                    <a href="https://wa.me/?text=🎁%20Vesak%20Reload%20Giveaway!%20Join%20now:%20YOUR_WEBSITE_LINK" 
+                       class="btn btn-whatsapp" 
+                       target="_blank">
+                        📱 Share on WhatsApp
+                    </a>
+
+                    <div class="divider"></div>
+
+                    <div style="text-align: center; margin: 20px 0;">
+                        <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 15px;">
+                            🏆 Winners will be announced on our WhatsApp Channel<br>
+                            <span class="sinhala-text" style="font-size: 0.85em;">ජයග්‍රාහකයන් අපගේ WhatsApp නාලිකාවේ දැනුම් දෙනු ලැබේ</span>
+                        </p>
+                        <a href="https://whatsapp.com/channel/0029VbCGiR172WTq8XRYAs2I" 
+                           class="btn btn-whatsapp" 
+                           target="_blank"
+                           style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                            📢 Join WhatsApp Channel
+                        </a>
+                    </div>
+
+                    <button class="btn btn-outline" onclick="showSection('home-section')" style="margin-top: 20px;">
+                        ← Back to Home
+                    </button>
+                </div>
+
+                <!-- Rules Section -->
+                <div id="rules-section" class="section">
+                    <div class="decoration">📜</div>
+                    <h1>Giveaway Rules</h1>
+                    <p class="subtitle">
+                        Please read carefully before entering
+                        <span class="sinhala-text">එක්වීමට පෙර කරුණාකර අවධාරණයෙන් කියවන්න</span>
+                    </p>
+                    
+                    <ul class="rules-list">
+                        <li>
+                            Only 10 winners will be selected randomly
+                            <span class="sinhala-text" style="display: block; font-size: 0.85em; margin-top: 5px; opacity: 0.8;">ජයග්‍රාහකයන් 10 දෙනෙක් පමණක් ක්‍රමයෙන් තෝරා ගනු ලැබේ</span>
+                        </li>
+                        <li>
+                            Fake entries will be automatically removed
+                            <span class="sinhala-text" style="display: block; font-size: 0.85em; margin-top: 5px; opacity: 0.8;">ව්‍යාජ ඇතුළත් කිරීම් ස්වයංක්‍රීයව ඉවත් කරනු ලැබේ</span>
+                        </li>
+                        <li>
+                            Winners will be announced on Vesak day
+                            <span class="sinhala-text" style="display: block; font-size: 0.85em; margin-top: 5px; opacity: 0.8;">ජයග්‍රාහකයන් වෙසක් දින දැනුම් දෙනු ලැබේ</span>
+                        </li>
+                        <li>
+                            One entry per person only
+                            <span class="sinhala-text" style="display: block; font-size: 0.85em; margin-top: 5px; opacity: 0.8;">පුද්ගලයෙකුට ඇතුළත් කිරීම් එකක් පමණි</span>
+                        </li>
+                        <li>
+                            Must be following our WhatsApp channel
+                            <span class="sinhala-text" style="display: block; font-size: 0.85em; margin-top: 5px; opacity: 0.8;">අපගේ WhatsApp නාලිකාව අනිවාර්යයෙන්ම follow කළ යුතුය</span>
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-primary" onclick="showSection('form-section')" style="margin-top: 20px;">
+                        I Agree - Enter Now / එකඟ වෙමි
+                    </button>
+                    
+                    <button class="btn btn-outline" onclick="showSection('home-section')" style="margin-top: 15px;">
+                        ← Back / ආපසු
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Section navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show target section with animation
+            setTimeout(() => {
+                document.getElementById(sectionId).classList.add('active');
+            }, 100);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading
+            submitBtn.innerHTML = '<span class="loading"></span> Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate processing
+            setTimeout(() => {
+                // Create confetti effect
+                createConfetti();
+                
+                // Show success section
+                showSection('success-section');
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Reset form
+                document.getElementById('giveaway-form').reset();
+            }, 1500);
+        }
+
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#FFD700', '#FFA500', '#FF8C00', '#FF6347', '#FFF'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Input validation enhancement
+        document.getElementById('phone').addEventListener('input', function(e) {
+            // Remove non-numeric characters
+            this.value = this.value.replace(/[^0-9]/g, '');
+            
+            // Limit to 10 digits
+            if (this.value.length > 10) {
+                this.value = this.value.slice(0, 10);
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Add subtle parallax effect to lanterns on mouse move
+            document.addEventListener('mousemove', (e) => {
+                const lanterns = document.querySelectorAll('.lantern');
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                
+                lanterns.forEach((lantern, index) => {
+                    const speed = (index + 1) * 0.5;
+                    lantern.style.transform = `translateX(${x * speed}px)`;
+                });
+            });
+        });
+
+        // Prevent zoom on double tap for mobile
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>
